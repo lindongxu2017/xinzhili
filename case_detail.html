@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport"/>
+    <title>转账详情</title>
+    <link rel="stylesheet" type="text/css" href="./css/swiper.min.css">
+    <link rel="stylesheet" type="text/css" href="./css/public_main.css">
+</head>
+<body>
+
+    <div class="main-content">
+        <div class="card info">
+            <div class="card-header" style="border-bottom: 1px solid #bbb;">转账金额：<span>￥100</span></div>
+            <div class="card-header">转账人信息：</div>
+            <div class="card-content">
+                <div class="card-content-inner">
+                    <p><span>转账人账户：</span>6222 6655 4444 5555 354</p>
+                    <p><span>转账人姓名：</span>谭某某</p>
+                    <p><span>转账人电话：</span>18066666666</p>
+                </div>
+            </div>
+        </div>
+        <div class="card info">
+            <div class="card-header">接收人信息：</div>
+            <div class="card-content">
+                <div class="card-content-inner">
+                    <p><span>接收人账户：</span>6222 6655 4444 5555 354</p>
+                    <p><span>接收人姓名：</span>谭某某</p>
+                    <p><span>接收人电话：</span>18088888888</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script type="text/javascript" src="./js/zepto.min.js"></script>
+    <script type="text/javascript" src="./js/swiper.min.js"></script>
+    <script type="text/javascript" src="./js/main.js"></script>
+    <script>
+
+    </script>
+    
+</body>
+<style>
+    body {
+        background-color: #fff;
+    }
+    .card{
+        margin: 0;
+        margin-top: 0.35rem;
+        box-shadow:none;
+        padding: 0 0.75rem;
+    }
+    .card p{
+        margin: 10px 0;
+    }
+    .card .card-header{
+        padding-left: 0;
+        font-size: .75rem;
+        margin: 20px 0 10px;
+        padding-bottom: 10px;
+    }
+    .card .card-header span {
+        color: #25D79E;
+        font-size: 1rem;
+    }
+    .card .card-header:after{
+        background-color: #c8c8c8;  
+    }
+    .card .card-content-inner{
+        padding: .75rem 0;
+        padding-top: 0;
+    }
+    .card-header:after{
+        height: 0;
+    }
+    .card.info .card-content-inner{
+        padding-left: 2rem;
+        font-size: 0.75rem;
+        border-bottom: 1px solid #bbb;
+    }
+    .card-content-inner  p span {
+        color: #787878;
+    }
+</style>
+</html>

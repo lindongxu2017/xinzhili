@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport"/>
+	<title>提现</title>
+	<link rel="stylesheet" type="text/css" href="./css/swiper.min.css">
+	<link rel="stylesheet" type="text/css" href="./css/public_main.css">
+</head>
+<body>
+
+	<div class="main-content">
+		<div class="cash">
+			<input type="" placeholder="请输入提现金额">
+			<div class="tips">可提现余额:<span>1500</span></div>
+			<div class="btn">提现</div>
+		</div>
+		<div class="log">
+			<div class="title">记录</div>
+			<div class="log-wrapper">
+				<div class="log-item">
+					<div class="time">2018/01/22</div>
+					<div class="money">-500</div>
+				</div>
+				<div class="log-item">
+					<div class="time">2018/01/22</div>
+					<div class="money">-500</div>
+				</div>
+				<div class="log-item">
+					<div class="time">2018/01/22</div>
+					<div class="money">-500</div>
+				</div>
+				<div class="log-item">
+					<div class="time">2018/01/22</div>
+					<div class="money">-500</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<script type="text/javascript" src="./js/zepto.min.js"></script>
+	<script type="text/javascript" src="./js/swiper.min.js"></script>
+	<script type="text/javascript" src="./js/main.js"></script>
+	<script>
+
+	</script>
+	
+</body>
+<style>
+	body {
+		background-color: #f2f2f2;
+	}
+	.main-content {
+		position: absolute;
+		top: 0;
+		left: 0;
+		right: 0;
+		bottom: 0;
+	}
+	.cash {
+		padding: 0 0.75rem 3rem;
+		background-color: #fff;
+	}
+	.cash > input {
+		padding: 1.25rem 0;
+		font-size: 1rem;
+		width: 100%;
+		border: 0;
+		border-bottom: 1px solid #bbb;
+	}
+	.cash .tips {
+		font-size: 0.8rem;
+		margin-top: 0.5rem;
+	}
+	.cash .btn {
+		width: 100%;
+		margin-top: 2.5rem;
+	}
+	.log {
+		height: calc(100% - 12.55rem);
+		padding: 0 1rem;
+	}
+	.log .title {
+		font-size: 1rem;
+		line-height: 2.5rem;
+	}
+	.log-wrapper {
+		height: calc(100% - 2.5rem);
+		overflow-y: scroll;
+		-webkit-overflow-scrolling: touch;
+	}
+	.log-item {
+		background-color: #fff;
+		padding: 0.5rem;
+		font-size: 0.75rem;
+		margin-bottom: 0.5rem;
+	}
+	.log-item .money {
+		float: right;
+		margin-top: -1rem;
+	}
+</style>
+</html>

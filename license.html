@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport"/>
+	<title>合伙人证书</title>
+	<link rel="stylesheet" type="text/css" href="./css/swiper.min.css">
+	<link rel="stylesheet" type="text/css" href="./css/public_main.css">
+</head>
+<body>
+
+	<div class="main-content">
+		<div class="tips">
+			<p>您的普通合伙人证书已生成，可以保存和分享！</p>
+			<p>您是第<span>13</span>合伙人</p>
+		</div>
+		<div class="license">
+			<img src="./img/license.png">
+			<div class="content">
+				<p class="cn">深圳市新之力文化传媒有限公司</p>
+				<p class="en">XinZhiLiCultureMediaLimitedCompany</p>
+				<p class="level">普通合伙人证书</p>
+				<div class="info">
+					<div class="cell">
+						<div class="label">合伙人编号：</div>
+						<div class="value">001</div>
+					</div>
+					<div class="cell">
+						<div class="label">合伙人姓名：</div>
+						<div class="value">谭某某</div>
+					</div>
+					<div class="cell">
+						<div class="label">身份证号码：</div>
+						<div class="value">4315199508058421</div>
+					</div>
+				</div>
+				<p class="creat_time">生成时间：2017年11月29日</p>
+			</div>
+		</div>
+	</div>
+
+	<script type="text/javascript" src="./js/zepto.min.js"></script>
+	<script type="text/javascript" src="./js/swiper.min.js"></script>
+	<script type="text/javascript" src="./js/main.js"></script>
+	<script>
+		function router (id) {
+			location.href = './notice.html?id=' + id;
+		}
+	</script>
+
+</body>
+<style>
+	.main-content {
+		padding: 0 0.75rem;
+	}
+	.tips {
+		margin: 1rem 0;
+	}
+	.tips p {
+		font-size: 0.7rem;
+		margin-bottom: 0.25rem;
+	}
+	.tips p span {
+		display: inline-block;
+		margin: 0 0.25rem;
+		color: #25D79E;
+	}
+	.license {
+		background-image: url('./img/license.png');
+		background-size: 100%;
+		background-repeat: no-repeat;
+		font-size: 0;
+		position: relative;
+	}
+	.license img {
+		width: 100%;
+		visibility: hidden;
+	}
+	.content {
+		font-size: 0.8rem;
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 100%;
+		box-sizing: border-box;
+		padding: 2rem;
+		text-align: center;
+	}
+	.content .cn {
+		font-size: 0.8rem;
+		font-weight: 600;
+	}
+	.content .en {
+		font-size: 0.5rem;
+		color: #333;
+	}
+	.content .level {
+		font-size: 0.75rem;
+		letter-spacing: 1px;
+		font-weight: 600;
+		color: #333;
+	}
+	.content .info {
+		box-sizing: border-box;
+		padding-left: 2rem;
+		text-align: left;
+		font-size: 0.5rem;
+		margin: 0.5rem 0;
+	}
+	.info .cell > div {
+		display: inline-block;
+		vertical-align: middle;
+	}
+	.creat_time {
+		font-size: 0.5rem;
+	}
+	@media screen and (max-width: 320px) {
+		.content .info {
+			margin: 0.1rem 0;
+		}
+	}
+</style>
+</html>

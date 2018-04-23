@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport"/>
+	<title>支付</title>
+	<link rel="stylesheet" type="text/css" href="./css/swiper.min.css">
+	<link rel="stylesheet" type="text/css" href="./css/public_main.css">
+</head>
+<body>
+
+	<div class="main-content">
+		<div class="title">知识学习课程（体验卡）</div>
+		<div class="price"><span>￥</span>700</div>
+		<div class="btn" onclick="pay()">支付</div>
+		<div class="mask">
+			<div class="password-box">
+				<div class="tips"><span>X</span>请输入支付密码</div>
+				<div class="password-content">
+					<div class="need-pay">
+						<p>支付金额</p>
+						<p>700</p>
+					</div>
+					<div class="password-input">
+						<div class="list">
+							<div></div>
+							<div></div>
+							<div></div>
+							<div></div>
+							<div></div>
+							<div></div>
+						</div>
+					</div>
+				</div>
+				<input class="real-input" oninput="if (value.length > 6) value = value.slice(0, 6)" type="number">
+			</div>
+		</div>
+	</div>
+
+	<script type="text/javascript" src="./js/zepto.min.js"></script>
+	<script type="text/javascript" src="./js/swiper.min.js"></script>
+	<script type="text/javascript" src="./js/main.js"></script>
+	<script>
+		var bool = false;
+		// 发起支付
+		function pay () {
+			// 禁止页面滚动
+			$('html').css({
+				'overflow': 'hidden'
+			})
+			$('.mask').show();
+			$('.real-input').focus();
+		}
+		// 输入密码
+		$('.real-input').keyup(function() {
+			var value = $('.real-input').val()
+			for (var i = 0; i < value.length; i++) {
+				$('.list > div').eq(i).html('●');
+			}
+			if (value.length < 6) {
+				bool = false;
+				for (var i = 0; i < (6 - value.length); i++) {
+					$('.list > div').eq(5 - i).html('');
+				}
+			}
+			if (value.length == 6 && !bool) {
+				bool = true;
+				setTimeout(function () {
+					// 调取支付接口
+					// todo
+					// 支付成功 todo
+					alert('支付成功')
+					$('.mask').hide();
+					$('.real-input').blur();
+					$('.real-input').val('');
+					$('.list > div').html('');
+				}, 50)
+			}
+		})
+		// 失去焦点、点击重新聚焦
+		$('.list > div').click(function() {
+			$('.real-input').focus();
+		})
+		// 关闭支付
+		$('.tips > span').click(function() {
+			// 打开页面滚动
+			$('html').css({
+				'overflow': 'auto'
+			})
+			$('.mask').hide();
+			$('.real-input').val('');
+		})
+	</script>
+</body>
+<style>
+	.main-content {
+		text-align: center;
+		box-sizing: border-box;
+		padding: 0 2rem;
+	}
+	.main-content .title {
+		margin-top: 3.5rem;
+		font-size: 0.7rem;
+		margin-bottom: 3.5rem;
+	}
+	.main-content .price {
+		font-size: 1.5rem;
+		margin-bottom: 3.5rem;
+		padding-bottom: 1rem;
+		border-bottom: 1px solid #BBB;
+	}
+	.main-content .price span {
+		font-size: 1rem;
+	}
+	.mask {
+		display: none;
+		position: fixed;
+		top: 0;
+		left: 0;
+		right: 0;
+		bottom: 0;
+		background-color: rgba(0,0,0,0.5);
+		box-sizing: border-box;
+		padding: 1rem;
+	}
+	.password-box {
+		position: absolute;
+		top: 1rem;
+		width: calc(100% - 2rem);
+		box-shadow: 0 0 5px rgba(0,0,0,0.5);
+		background-color: #fff;
+	}
+	.tips {
+		line-height: 2rem;
+		font-size: 0.8rem;
+		border-bottom: 1px solid #25D79E;
+	}
+	.tips span {
+		float: left;
+		color: #787878;
+		margin-left: 10px;
+		display: inline-block;
+		width: 20px;
+	}
+	.password-content {
+		padding: 0 0.75rem 0.75rem;
+	}
+	.need-pay {
+		padding: 0.5rem 0;
+		border-bottom: 1px solid #bbb;
+	}
+	.need-pay > p {
+		font-size: 0.7rem;
+		color: #78788;
+	}
+	.need-pay > p:last-child {
+		font-size: 2rem;
+		margin: 0.5rem 0;
+		color: #333;
+	}
+	.password-input {
+		padding-top: 0.5rem;
+	}
+	.password-input .list {
+		height: 40px;
+		border: 1px solid #bbb;
+		display: flex;
+	}
+	.password-input .list > div {
+		flex: 1;
+		text-align: center;
+		line-height: 40px;
+		border-right: 1px solid #bbb;
+	}
+	.password-input .list > div:last-child {
+		border-right: 0;
+	}
+	.real-input {
+		position: absolute;
+		width: 50px;
+		height: 20px;
+		bottom: 0.3rem;
+		left: -5rem;
+		z-index: -1;
+		opacity: 0;
+	}
+	.btn {
+		width: 100%;
+	}	
+</style>
+</html>

@@ -1,0 +1,48 @@
+html,body,div,p,ol,ul,li {padding: 0;margin: 0;}
+li {list-style: none;}
+a {text-decoration: none;color: #707070;}
+input {
+	outline: none;
+}
+
+/*底部导航*/
+.footer {
+	display: flex;
+	background-color: #f8f8f8;
+	font-size: 0.75rem;
+	position: fixed;
+	width: 100%;
+	bottom: 0;
+	box-sizing: border-box;
+	border-top: 1px solid #BBBBBB;
+	padding: 0.25rem 0;
+}
+.footer > div {
+	flex: 1;
+	text-align: center;
+	color: #707070;
+	font-size: 0;
+	/* line-height: 2.2rem; */
+}
+
+.footer > div p {
+	font-size: 0.6rem;
+}
+.footer > div.active a {
+	color: #25D79E;
+}
+.footer > div a {
+	display: inline-block;
+	width: 100%;
+	height: 100%;
+}
+.btn {
+	width: calc(100% - 1.5rem);
+	line-height: 1.8rem;
+	text-align: center;
+	color: #fff;
+	background-color: #25D79E;
+	border-radius: 0.15rem;
+	margin: auto;
+	font-size: 0.75rem;
+}

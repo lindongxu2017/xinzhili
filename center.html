@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport"/>
+	<title>个人中心</title>
+	<link rel="stylesheet" type="text/css" href="./css/swiper.min.css">
+	<link rel="stylesheet" type="text/css" href="./css/public_main.css">
+</head>
+<body>
+
+	<div class="main-content">
+		<div class="header">
+			<img src="./img/head.png">
+			<p class="phone">18088888888</p>
+			<p>身份：普通用户</p>
+			<div class="btn" onclick="router('join')">成为合伙人</div>
+			<div class="icon"><img onclick="router('license')" src="./img/icon_right.png"></div>
+		</div>
+		<div class="balance">
+			<div><p class="num">800</p><p>奖金余额</p><img src="./img/icon_right2.png"></div>
+			<div><p class="num">800</p><p>充值金额</p><img src="./img/icon_right2.png"></div>
+		</div>
+		<div class="course-type">
+			<div><p>推广收益</p><p>500</p></div>
+			<div><p>体验会员</p><p>700</p></div>
+			<div><p>小班</p><p>700</p></div>
+			<div><p>大班</p><p>700</p></div>
+			<div><p>小学</p><p>700</p></div>
+			<div><p>初中</p><p>700</p></div>
+			<div><p>高中</p><p>700</p></div>
+			<div><p>大学</p><p>700</p></div>
+			<div><p>博士</p><p>700</p></div>
+			<div><p>合伙人分红</p><p>700</p></div>
+			<div><p></p><p></p></div>
+			<div><p></p><p></p></div>
+		</div>
+		<div class="link-list">
+			<div class="link-item" onclick="router('QRcode')">推广二维码<img src="./img/icon_right.png"></div>
+			<div class="link-item" onclick="router('bonus')">奖金明细<img src="./img/icon_right.png"></div>
+			<div class="link-item" onclick="router('finance')">财务明细<img src="./img/icon_right.png"></div>
+			<div class="link-item" onclick="router('about_us')">关于我们<img src="./img/icon_right.png"></div>
+			<a class="link-item" href="tel: 18088888888">联系客服</a>
+		</div>
+	</div>
+
+	<div class="footer">
+		<div>
+			<a href="index.html">
+				<img src="./img/gg.png" width="25">
+				<p>公告</p>
+			</a>
+		</div>
+		<div>
+			<a href="course.html">
+				<img src="./img/kc.png" width="25">
+				<p>课程</p>
+			</a>
+		</div>
+		<div class="active">
+			<a>
+				<img src="./img/center_check.png" width="25">
+				<p>个人中心</p>
+			</a>
+		</div>
+	</div>
+
+	<script type="text/javascript" src="./js/zepto.min.js"></script>
+	<script type="text/javascript" src="./js/swiper.min.js"></script>
+	<script type="text/javascript" src="./js/main.js"></script>
+	<script>
+		function router (name) {
+			location.href = './' + name + '.html?';
+		}
+	</script>
+
+</body>
+<style>
+	.main-content {
+		background-color: #f2f2f2;
+		padding-bottom: 2.6rem;
+	}
+	.header {
+		text-align: center;
+		font-size: 0.7rem;
+		padding: 1rem;
+		background-color: #fff;
+		position: relative;
+	}
+	.header > p {
+		margin-bottom: 0.5rem; 
+	}
+	.header > p.phone {
+		font-size: 1rem;
+		margin-bottom: 0.25rem; 
+	}
+	.header > img {
+		width: 5rem;
+		height: 5rem;
+		border-radius: 50%;
+		margin-bottom: 0.5rem;
+	}
+	.header .btn {
+		width: 5rem;
+		line-height: 1.5rem;
+	}
+	.header .icon {
+		position: absolute;
+		right: 2rem;
+		top: 2.5rem;
+	}
+	.header .icon img {
+		width: 1rem;
+	}
+	.balance {
+		background-color: #fff;
+		margin-top: 0.35rem;
+		padding: 1rem 0;
+		display: flex;
+		position: relative;
+	}
+	.balance:after {
+		content: '';
+		position: absolute;
+		width: 1px;
+		height: 50%;
+		top: 25%;
+		left: 50%;
+		background-color: #bbb;
+	}
+	.balance > div {
+		text-align: center;
+		font-size: 0.7rem;
+		flex: 1;
+		position: relative;
+	}
+	.balance > div .num {
+		font-size: 1rem;
+	}
+	.balance > div img {
+		position: absolute;
+		width: 0.7rem;
+		right: 1rem;
+		bottom: 0.15rem;
+	}
+	.course-type {
+		font-size: 0;
+		background-color: #fff;
+		padding: 0.5rem 0;
+		margin-top: 0.35rem;
+		position: relative;
+	}
+	.course-type:after {
+		content: '';
+		position: absolute;
+		bottom: 0.5rem;
+		left: 0;
+		width: 100%;
+		height: 1px;
+		background-color: #fff;
+	}
+	.course-type > div {
+		width: 25%;
+		display: inline-block;
+		font-size: 0.7rem;
+		text-align: center;
+		box-sizing: border-box;
+		border-right: 1px solid #bbb;
+		border-bottom: 1px solid #bbb;
+		vertical-align: text-top;
+	}
+	.course-type > div:nth-child(4n) {
+		border-right: 0;
+	}
+	.course-type > div p {
+		min-height: 1rem;
+		margin: 0.5rem;
+	}
+	.link-list {
+		margin-top: 0.35rem;
+		background-color: #fff;
+		box-sizing: border-box;
+		padding: 0 0.75rem;
+	}
+	.link-list .link-item {
+		font-size: 0.75rem;
+		padding: 0.75rem 0;
+		border-bottom: 1px solid #BBB;
+	}
+	.link-list .link-item:last-child {
+		border-bottom: 0;
+	}
+	.link-list .link-item img {
+		margin-top: 0.15rem;
+		width: 0.75rem;
+		float: right;
+	}
+	a.link-item {
+		display: inline-block;
+		font-size: 0.75rem;
+		padding: 0.75rem 0;
+	}
+</style>
+</html>

@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport"/>
+	<title>课程</title>
+	<link rel="stylesheet" type="text/css" href="./css/swiper.min.css">
+	<link rel="stylesheet" type="text/css" href="./css/public_main.css">
+</head>
+<body>
+
+	<div class="main-content">
+		<!-- 轮播组件 -->
+		<div class="swiper-container">
+		    <div class="swiper-wrapper">
+		        <div class="swiper-slide"><img src="./img/banner.jpg"></div>
+		        <div class="swiper-slide"><img src="./img/banner.jpg"></div>
+		        <div class="swiper-slide"><img src="./img/banner.jpg"></div>
+		    </div>
+		</div>
+		<ul>
+			<li>
+				<div onclick="router(1, 1)">
+					<div class="title">知识学习课程（体验卡）</div>
+					<div class="desc">如果你无法简洁的表达你的想法，那只能说明你还不够了解它。</div>
+				 	<img src="./img/demo.jpg">
+				</div>
+			 	<div class="shop">
+			 		<span>￥700</span>
+			 		<div onclick="router(1, 2)">购买</div>
+			 	</div>
+			</li>
+			<li>
+				<div onclick="router(2, 1)">
+					<div class="title">知识学习课程（体验卡）</div>
+					<div class="desc">如果你无法简洁的表达你的想法，那只能说明你还不够了解它。</div>
+				 	<img src="./img/demo.jpg">
+				</div>
+			 	<div class="shop">
+			 		<span>￥700</span>
+			 		<div onclick="router(2, 2)">购买</div>
+			 	</div>
+			</li>
+			<li>
+				<div onclick="router(3, 1)">
+					<div class="title">知识学习课程（体验卡）</div>
+					<div class="desc">如果你无法简洁的表达你的想法，那只能说明你还不够了解它。</div>
+				 	<img src="./img/demo.jpg">
+				</div>
+			 	<div class="shop">
+			 		<span>￥700</span>
+			 		<div onclick="router(3, 2)">购买</div>
+			 	</div>
+			</li>
+		</ul>
+	</div>
+	
+	<div class="footer">
+		<div>
+			<a href="index.html">
+				<img src="./img/gg.png" width="25">
+				<p>公告</p>
+			</a>
+		</div>
+		<div class="active">
+			<a>
+				<img src="./img/kc_check.png" width="25">
+				<p>课程</p>
+			</a>
+		</div>
+		<div>
+			<a href="center.html">
+				<img src="./img/center.png" width="25">
+				<p>个人中心</p>
+			</a>
+		</div>
+	</div>
+
+	<script type="text/javascript" src="./js/zepto.min.js"></script>
+	<script type="text/javascript" src="./js/swiper.min.js"></script>
+	<script type="text/javascript" src="./js/main.js"></script>
+	<script>
+		function router (id, type) {
+			location.href = type == 1 ? './course_detail.html?id=' + id : './pay.html?id=' + id;
+		}
+		// 轮播组件
+		var swiper = new Swiper('.swiper-container');
+	</script>
+
+</body>
+<style>
+	.main-content {
+		box-sizing: border-box;
+		padding-bottom: 2.54rem;
+	}
+	.main-content ul {
+		box-sizing: border-box;
+		padding: 0 0.75rem;
+	}
+	.main-content ul li {
+		margin-top: 1rem;
+		border-bottom: 1px solid #BBBBBB;
+	}
+	.main-content ul li:last-child {
+		border: 0;
+	}
+	.main-content ul li .title {
+		font-size: 0.9rem;
+		margin-bottom: 0.5rem;
+	}
+	.main-content ul li .desc {
+		font-size: 0.7rem;
+		margin-bottom: 0.25rem;
+		overflow: hidden;
+		text-overflow: ellipsis;
+		display: -webkit-box;
+		-webkit-box-orient: vertical;
+		-webkit-line-clamp: 2;
+	}
+	.main-content ul li img {
+		width: 100%;
+		border-radius: 0.5rem;
+	}
+	.main-content ul li .shop {
+		color: #25D79E;
+		font-size: 0.9rem;
+		padding: 0.75rem 0;
+	}
+	.main-content ul li .shop div {
+		float: right;
+		padding: 0.2rem 1rem;
+		font-size: 0.75rem;
+		color: #fff;
+		background-color: #25D79E;
+		margin-top: -2px;
+		border-radius: 0.15rem;
+	}
+	.swiper-slide img {
+		width: 100%;
+	}
+</style>
+</html>

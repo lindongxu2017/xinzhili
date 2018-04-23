@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport"/>
+	<title>课程</title>
+	<link rel="stylesheet" type="text/css" href="./css/swiper.min.css">
+	<link rel="stylesheet" type="text/css" href="./css/public_main.css">
+</head>
+<body>
+
+	<div class="main-content">
+		<!-- 轮播组件 -->
+		<div class="swiper-container">
+		    <div class="swiper-wrapper">
+		        <div class="swiper-slide"><img src="./img/demo2.jpg"></div>
+		        <div class="swiper-slide"><img src="./img/demo2.jpg"></div>
+		        <div class="swiper-slide"><img src="./img/demo2.jpg"></div>
+		    </div>
+		</div>
+		<div class="detail-content">
+			<div class="section">
+				<div class="title">知识学习课程（体验卡）</div>
+				<div class="price">￥700</div>
+			</div>
+			<div class="section">
+				<div class="name attr">
+					<span class="label">教师：</span>
+					<span class="value">张三</span>
+				</div>
+				<div class="attr">
+					<span class="label">地点：</span>
+					<span class="value">深圳市坂田街道xxxxxxxxxxxxxxx深圳市坂田街道xxxxxxxxxxxxxxx深圳市坂田街道xxxxxxxxxxxxxxx</span>
+				</div>
+			</div>
+			<div class="section">
+				<div class="cell-label">详情</div>
+				<div class="desc">如果你无法简洁的表达你的想法，那只能说明你还不够了解它。</div>
+				<img src="./img/demo.jpg">
+			</div>
+		</div>
+		<div class="btn" onclick="router()">购买</div>
+	</div>
+
+	<script type="text/javascript" src="./js/zepto.min.js"></script>
+	<script type="text/javascript" src="./js/swiper.min.js"></script>
+	<script type="text/javascript" src="./js/main.js"></script>
+	<script>
+		// 轮播组件
+		var swiper = new Swiper('.swiper-container');
+		function GetQueryString (name) {
+	        var reg = new RegExp('(^|&)' + name + '=([^&]*)(&|$)');
+	        var r = window.location.search.substr(1).match(reg);
+	        if (r != null) return unescape(r[2]); return '';
+	    }
+		function router () {
+			var id = GetQueryString('id');
+			location.href = './pay.html?id=' + id;
+		}
+	</script>
+
+</body>
+<style>
+	.main-content {
+		padding-bottom: 1rem;
+	}
+	.detail-content {
+		box-sizing: border-box;
+		padding: 0 0.75rem;
+		font-size: 0.75rem;
+	}
+	.section {
+		padding: 0.75rem 0;
+		border-bottom: 1px solid #BBBBBB;
+	}
+	.detail-content .section:last-child {
+		border-bottom: 0;
+	}
+	.section .title {
+		font-size: 0.8rem;
+		margin-bottom: 0.75rem;
+	}
+	.section .price {
+		font-size: 0.8rem;
+		color: #25D79E;
+	}
+	.section .name {
+		margin-bottom: 0.5rem;
+	}
+	.section .attr {
+		font-size: 0;
+	}
+	.section .attr .label {
+		display: inline-block;
+		font-size: 0.75rem;
+		width: 45px;
+		vertical-align: text-top;
+	}
+	.section .attr .value {
+		display: inline-block;
+		font-size: 0.75rem;
+		width: calc(100% - 45px);
+		vertical-align: text-top;
+	}
+	.section img {
+		width: 100%;
+	}
+	.section .cell-label {
+		font-size: 0.8rem;
+		margin-bottom: 0.5rem;
+	}
+	.section .desc {
+		font-size: 0.75rem;
+		margin-bottom: 10px;
+	}
+	.swiper-slide img {
+		width: 100%;
+	}
+</style>
+</html>

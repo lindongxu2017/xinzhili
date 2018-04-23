@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport"/>
+	<title>公告</title>
+	<link rel="stylesheet" type="text/css" href="./css/swiper.min.css">
+	<link rel="stylesheet" type="text/css" href="./css/public_main.css">
+</head>
+<body>
+
+	<div class="main-content">
+		<ul>
+			<li onclick="router(1)">
+				<div class="time">2018/01/20</div>
+				<div class="title">正式开启新课程欢迎参加</div>
+			</li>
+			<li onclick="router(2)">
+				<div class="time">2018/01/20</div>
+				<div class="title">正式开启新课程欢迎参加</div>
+			</li>
+		</ul>
+	</div>
+	
+	<div class="footer">
+		<div class="active">
+			<a>
+				<img src="./img/gg_check.png" width="25">
+				<p>公告</p>
+			</a>
+		</div>
+		<div>
+			<a href="course.html">
+				<img src="./img/kc.png" width="25">
+				<p>课程</p>
+			</a>
+		</div>
+		<div>
+			<a href="center.html">
+				<img src="./img/center.png" width="25">
+				<p>个人中心</p>
+			</a>
+		</div>
+	</div>
+
+	<script type="text/javascript" src="./js/zepto.min.js"></script>
+	<script type="text/javascript" src="./js/swiper.min.js"></script>
+	<script type="text/javascript" src="./js/main.js"></script>
+	<script>
+		function router (id) {
+			location.href = './notice.html?id=' + id;
+		}
+	</script>
+
+</body>
+<style>
+	.main-content {
+		position: absolute;
+		top: 0;
+		left: 0;
+		right: 0;
+		bottom: 2.54rem;
+	}
+	.main-content ul li {
+		padding: 0.5rem 0.75rem;
+		margin-top: 0.5rem;
+	}
+	.main-content ul li .time {
+		text-align: center;
+		font-size: 0.7rem;
+		margin-bottom: 0.5rem;
+	}
+	.main-content ul li .title {
+		box-sizing: border-box;
+		padding: 0.75rem 1rem;
+		font-size: 0.75rem;
+		border: 1px solid #BBBBBB;
+		border-radius: 0.5rem;
+	}
+</style>
+</html>

@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport"/>
+    <title>用户详情</title>
+    <link rel="stylesheet" type="text/css" href="./css/swiper.min.css">
+    <link rel="stylesheet" type="text/css" href="./css/public_main.css">
+    <style>
+        .header .value div.upload.wx {
+            display: none;
+        }
+        .header {
+            padding: 0.75rem;
+            font-size: 0.8rem;
+            border-bottom: 1px solid #d9d9d9;
+            font-size: 0;
+        }
+        .header .value {
+            text-align: right;
+            position: relative;
+            vertical-align: middle;
+        }
+        .header .value div.upload {
+            display: inline-block;
+            width: 50px;
+            height: 50px;
+            border: 1px dashed #d9d9d9;
+            position: relative;
+        }
+        .header .value img {
+            width: 52px;
+            height: 52px;
+            display: none;
+        }
+        .header .value div.upload:after {
+            content: '+';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            font-size: 1.5rem;
+            color: #d9d9d9;
+            text-align: center;
+            line-height: 50px;
+            z-index: -1;
+        }
+        .header .value input {
+            width: 100%;
+            height: 100%;
+            opacity: 0;
+        }
+        .cell {
+            padding: 0.75rem;
+            font-size: 0;
+            border-bottom: 1px solid #d9d9d9;
+        }
+        .label {
+            display: inline-block;
+            color: #333;
+            font-size: 0.75rem;
+            width: 4rem;
+            letter-spacing: 0.15rem;
+            vertical-align: middle;
+        }
+        .value {
+            display: inline-block;
+            width: calc(100% - 4rem);
+            width: -webkit-calc(100% - 4rem);
+            width: -moz-calc(100% - 4rem);
+            vertical-align: middle;
+        }
+        .value input {
+            outline: none;
+            background: none;
+            text-shadow: none;
+            border: 0;
+            width: 100%;
+            line-height: 1rem;
+        }
+    </style>
+</head>
+<body>
+    <div class="main-content">
+        <div class="form">
+            <div class="header">
+                <div class="label">头像</div>
+                <div class="value">
+                    <!-- 非微信浏览器 -->
+                    <div class="upload not_wx">
+                        <input type="file" id="selectImg" onchange="uploadImg()">
+                    </div>
+                    <!-- 微信浏览器 -->
+                    <div class="upload wx" onclick="wxUpload()"></div>
+                    <!-- 图片预览 -->
+                    <img src="" onclick="reUpload()">
+                </div>
+            </div>
+            <div class="cell">
+                <div class="label">姓名</div>
+                <div class="value">
+                    <input class="control" type="text" placeholder="请输入姓名">
+                </div>
+            </div>
+            <div class="cell">
+                <div class="label">电话</div>
+                <div class="value">
+                    <input class="control" type="number" placeholder="请输入电话">
+                </div>
+            </div>
+            <div class="cell">
+                <div class="label">邮箱</div>
+                <div class="value">
+                    <input class="control" type="email" placeholder="请输入邮箱">
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script type="text/javascript" src="./js/zepto.min.js"></script>
+    <script type="text/javascript" src="./js/swiper.min.js"></script>
+    <script type="text/javascript" src="./js/main.js"></script>
+    <script type="text/javascript" src="http://res.wx.qq.com/open/js/jweixin-1.2.0.js"></script>
+    <script>
+        // 判断是否是微信浏览器打开
+        var is_wx = 0; // 非微信浏览器
+        var ua = window.navigator.userAgent.toLowerCase()
+        if (ua.indexOf('micromessenger') > -1) {
+            console.log('微信浏览器')
+            is_wx = 1; // 微信浏览器
+            $('.header .value div.upload.wx').css({'display': 'inline-block'}); // 显示微信上传按钮
+            $('.header .value .not_wx').hide(); // 关闭普通上传
+        }
+        // 普通上传
+        function uploadImg () {
+            var imgObj = document.getElementById('selectImg').files[0]; // 传到后台
+            var imgUrl = window.URL.createObjectURL(imgObj);
+            $('.header .value img').attr('src', imgUrl);
+            $('.header .value img').css({'display': 'inline-block'})
+            $('.header .value .not_wx').hide(); // 关闭普通上传
+            console.log(imgObj)
+        }
+        // 点击图片重新上传
+        function reUpload () {
+            if (parseInt(is_wx) == 0) {
+                document.getElementById('selectImg').click();
+            } else {
+                wxUpload();
+            }
+        }
+        // 配置wx.config
+        (function wxConfig() {
+            var url = location.href.split('#')[0];
+            $.ajax({
+                url: 'http://office.qinhantangtop.com/home/wxch/createJssdkConfig',
+                type: 'post',
+                data: {
+                    url: url
+                },
+                cache: true,
+                timeout: 30000,
+                dataType: 'json',
+                success: function (res) {
+                    console.log(res.data);
+                    res.data.debug = false;
+                    wx.config(res.data);
+                },
+                error: function () {
+                    console.log('网络错误');
+                }
+            });
+        })();
+
+        function wxUpload () {
+            wx.chooseImage({
+                count: 1, // 默认9
+                // 可以指定是原图还是压缩图，默认二者都有
+                sizeType: ['original', 'compressed'],
+                // 可以指定来源是相册还是相机，默认二者都有
+                sourceType: ['album', 'camera'],
+                // 返回选定照片的本地ID列表，localId可以作为img标签的src属性显示图片
+                success: function (res) {
+                    var localIds = res.localIds;
+                    if (window.__wxjs_is_wkwebview) { // ios系统
+                        wx.getLocalImgData({
+                            localId: localIds[0],
+                            success: function (result) {
+                                $('.header .value img').attr('src', res.localIds); // 图片预览
+                                $('.header .value img').css({'display': 'inline-block'})
+                                $('.header .value .wx').hide();
+                            }
+                        })
+                    } else { // 安卓系统
+                        $('.header .value img').attr('src', res.localIds); // 图片预览
+                        $('.header .value img').css({'display': 'inline-block'})
+                        $('.header .value .wx').hide();
+                    }
+                    wx.uploadImage({
+                        // 需要上传的图片的本地ID，由chooseImage接口获得
+                        localId: localIds.toString(),
+                        // 默认为1，显示进度提示
+                        isShowProgressTips: 1,
+                        success: function (res) {
+                            // 返回图片的服务器端ID
+                            var imgID =  res.serverId; // 微信提交mediaID
+                        }
+                    });
+                }
+            });
+        }
+    </script>
+</body>
+
+</html>

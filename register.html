@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport"/>
+	<title>注册</title>
+	<link rel="stylesheet" type="text/css" href="./css/swiper.min.css">
+	<link rel="stylesheet" type="text/css" href="./css/public_main.css">
+</head>
+<body>
+
+	<div class="main-content">
+		<div class="title">注册</div>
+		<div class="form">
+			<input type="number" placeholder="请输入手机号">
+			<div class="code">
+				<input type="number" placeholder="请输入验证码">
+				<div class="code-btn" id="code-btn" onclick="getcode()">获取验证码</div>
+			</div>
+			<input type="password" placeholder="请输入密码">
+			<!-- 协议 -->
+			<div class="protocol">
+				<input type="checkbox">
+				<span onclick="open_protocol()">《xxxx平台协议》</span>
+			</div>
+			<!-- 协议弹出层 -->
+			<div class="mask">
+				<div class="protocol-content">
+					协议：在法律上是合同的同义词。只要协议对买卖合同双方的权利和义务作出明确、具体和肯定的约定，即使书面文件上被冠以“协议”或“协议书”的名称，一经双方签署确定，即与合同一样对买卖双方具有约束力。
+					<div class="close" onclick="close_protocol()">关闭</div>
+				</div>
+			</div>
+			<!-- 协议弹出层 -->
+			<div class="btn">注册</div>
+		</div>
+	</div>
+
+	<script type="text/javascript" src="./js/zepto.min.js"></script>
+	<script type="text/javascript" src="./js/swiper.min.js"></script>
+	<script type="text/javascript" src="./js/main.js"></script>
+	<script>
+		function getcode () {
+			var time = 10; // 倒计时时间
+			var obj = document.getElementById('code-btn');
+			if (obj.innerHTML == '获取验证码') {
+				set_code_time(time)
+			}
+		}
+		function set_code_time (time) {
+			var obj = document.getElementById('code-btn');
+			setTimeout(res => {
+				time --;
+				obj.innerHTML = time + 's';
+				if (time >= 0) {
+					set_code_time(time);
+				} else {
+					obj.innerHTML = '获取验证码';
+				}
+			}, 1000)
+		}
+		// 打开协议
+		function open_protocol () {
+			$('.mask').show();
+		}
+		// 关闭协议
+		function close_protocol () {
+			$('.mask').hide();
+		}
+	</script>
+	
+</body>
+<style>
+	/* 协议样式 start */
+	.protocol {
+		margin-top: 1rem;
+		font-size: 0.7rem;
+	}
+	.protocol input,
+	.protocol span {
+		vertical-align: middle;
+	}
+	.mask {
+		position: fixed;
+		top: 0;
+		left: 0;
+		right: 0;
+		bottom: 0;
+		background-color: rgba(0,0,0,0.5);
+		display: none;
+	}
+	.protocol-content {
+		position: absolute;
+		width: calc(100% - 3rem);
+		height: 70%;
+		top: 15%;
+		left: 1.5rem;
+		background-color: #fff;
+		box-sizing: border-box;
+		padding: 0.75rem 0.75rem 1.75rem;
+		font-size: 15px;
+		line-height: 1.5;
+		color: #787878;
+		border-radius: 0.15rem;
+	}
+	.close {
+		position: absolute;
+		left: 0;
+		bottom: 0;
+		line-height: 1.75rem;
+		font-size: 14px;
+		text-align: center;
+		border-top: 1px solid #bbb;
+		width: 100%;
+	}
+	/* 协议样式 end */
+	.title {
+		margin-top: 2.5rem;
+		padding-left: 2rem;
+		position: relative;
+		font-size: 1rem;
+	}
+	.title:before {
+		content: "";
+		position: absolute;
+		left: 1rem;
+		width: 0.5rem;
+		height: 100%;
+		background-color: #25D79E;
+	}
+	.form {
+		padding: 0 2.5rem;
+		margin-top: 3.5rem;
+	}
+	.form > input {
+		width: 100%;
+		border: 0;
+		border-bottom: 1px solid #BBB;
+		padding: 1rem 0;
+	}
+	.code {
+		font-size: 0.75rem;
+		display: flex;
+		padding: 1rem 0;
+		border-bottom: 1px solid #BBB;
+	}
+	.code input {
+		flex: 1;
+		border: 0;
+	}
+	.code .code-btn {
+		flex: 1;
+		text-align: right;
+		color: #25D79E;
+	}
+	.btn {
+		width: 100%;
+		margin-top: 5.75rem;
+	}
+</style>
+</html>
